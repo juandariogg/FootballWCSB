@@ -6,12 +6,15 @@ using System.Text;
 
 namespace FootballWCSB.Data.Entities
 {
-    public internal class EntityBase : INotifyPropertyChanged
+    namespace @internal
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string source = "")
+        public class EntityBase : INotifyPropertyChanged
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(source));
+            public event PropertyChangedEventHandler PropertyChanged;
+            public void OnPropertyChanged([CallerMemberName] string source = "")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(source));
+            }
         }
     }
 }

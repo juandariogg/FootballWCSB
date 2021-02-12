@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FootballWCSB.Data
+namespace FootballWCSB
 {
     public class MatchManager
     {
+
     }
 }
