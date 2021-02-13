@@ -11,6 +11,10 @@ namespace FootballWCSB.Data.DAO
             internal ICollection<T> ItemsCollection;
 
             internal abstract void Initialize();
+            public abstract void Create(T item);
+            public abstract T Update(T item);
+            public abstract void Remove(T item);
+            public abstract List<T> GetAll();
 
             protected DAOBase()
             {
