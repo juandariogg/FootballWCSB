@@ -14,6 +14,11 @@ namespace FootballWCSB.Data.DAO
             if (_instance == null)
                 _instance = new MatchDAO();
 
+#if DEBUG
+            // this is to reset the collection between tests whenever a new "instance" is created
+            _instance.Initialize();
+#endif
+
             return _instance;
         }
 
@@ -77,12 +82,19 @@ namespace FootballWCSB.Data.DAO
 
             return collectionItem;
         }
-
+        /// <summary>
+        /// Removes a Match from the collection
+        /// </summary>
+        /// <param name="item">Match to delete</param>
         public override void Remove (Match item)
         {
             ItemsCollection.Remove(item);
         }
 
+        /// <summary>
+        /// Gets a List of all matches
+        /// </summary>
+        /// <returns>List of matches</returns>
         public override List<Match> GetAll()
         {
             return ItemsCollection.ToList();

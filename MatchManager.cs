@@ -29,6 +29,9 @@ namespace FootballWCSB
             if (!MatchDAO.Exists(item.HomeTeam, item.AwayTeam))
                 throw new Exception("The provided match does not exist in the scoreboard");
 
+            if ((homeScore ?? 0) < 0 || (awayScore ?? 0) < 0)
+                throw new Exception("Can't set a negative score");
+
             if (homeScore != null)
                 item.HomeScore = homeScore ?? 0;
 
